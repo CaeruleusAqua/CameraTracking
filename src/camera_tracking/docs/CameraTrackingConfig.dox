@@ -1,0 +1,18 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~Acquire" : \b [bool] Acquire min: False, default: True, max: True
+- \b "~ExposureAuto" : \b [str] Automatic exposure min: , default: Off, max: 
+- \b "~GainAuto" : \b [str] Automatic gain min: , default: Off, max: 
+- \b "~ExposureTimeAbs" : \b [double] Exposure time (us) min: 0.0, default: 2000.0, max: 1000000.0
+- \b "~Gain" : \b [double] Gain (%) min: 0.0, default: 1.0, max: 10000.0
+- \b "~AcquisitionMode" : \b [str] Acquisition Mode min: , default: Continuous, max: 
+- \b "~AcquisitionFrameRate" : \b [double] Framerate (fps) min: 0.0, default: 100.0, max: 1000.0
+- \b "~TriggerMode" : \b [str] TriggerMode min: , default: Off, max: 
+- \b "~TriggerSource" : \b [str] Trigger Source min: , default: Line1, max: 
+- \b "~softwaretriggerrate" : \b [double] Software Trigger Rate (hz) min: 0.01, default: 100.0, max: 200.0
+- \b "~FocusPos" : \b [int] FocusPos min: 0, default: 32767, max: 65535
+- \b "~frame_id" : \b [str] ROS camera frame min: , default: camera, max: 
+- \b "~mtu" : \b [int] mtu min: 576, default: 1500, max: 9000
+
