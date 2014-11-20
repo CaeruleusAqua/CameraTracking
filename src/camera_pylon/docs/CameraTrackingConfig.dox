@@ -1,0 +1,13 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~FixedFrameRate" : \b [bool] fixed Framerate enable min: False, default: True, max: True
+- \b "~ExposureAuto" : \b [str] Automatic exposure min: , default: Off, max: 
+- \b "~GainAuto" : \b [str] Automatic gain min: , default: Off, max: 
+- \b "~PixelFormat" : \b [str] Pixel Format min: , default: Bayer_RG8, max: 
+- \b "~ExposureTimeAbs" : \b [int] Exposure time (us) min: 35, default: 14000, max: 840000
+- \b "~Gain" : \b [int] Gain (%) min: 1, default: 1, max: 3
+- \b "~AcquisitionMode" : \b [str] Acquisition Mode min: , default: Continuous, max: 
+- \b "~FrameRate" : \b [double] Framerate (fps) min: 1.19048, default: 10.0, max: 1000.0
+
