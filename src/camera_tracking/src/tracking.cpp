@@ -49,14 +49,14 @@ public:
 		if (ptrGrabResult->GrabSucceeded()) {
 			fc.Convert(image, ptrGrabResult);
 			Mat cv_img = cv::Mat(ptrGrabResult->GetHeight(), ptrGrabResult->GetWidth(), CV_8UC1, (uint8_t*) image.GetBuffer());
-			//Mat temp = cv_img.clone();
-			//double tmp[] = {-0.0071051186191983485, 0.010475801567272592, -0.002036391860118614, 0.0015917568818403511, 0.0 };
-			//std::vector<double> dis(tmp, tmp + sizeof tmp / sizeof tmp[0]);
-			//Matx33d m(809.7768378862996, 0.0, 762.2499917249673, 0.0, 809.7990091872273, 570.3036262589774, 0.0, 0.0, 1.0);
-			//undistort(temp,cv_img,m,dis);
+            //Mat temp = cv_img.clone();
+            //double tmp[] = {-0.0071051186191983485, 0.010475801567272592, -0.002036391860118614, 0.0015917568818403511, 0.0 };
+            //std::vector<double> dis(tmp, tmp + sizeof tmp / sizeof tmp[0]);
+            //Matx33d m(809.7768378862996, 0.0, 762.2499917249673, 0.0, 809.7990091872273, 570.3036262589774, 0.0, 0.0, 1.0);
+            //undistort(temp,cv_img,m,dis);
 			//imshow("CV_Image", cv_img);
 			sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "mono8", cv_img).toImageMsg();
-			pub.publish(msg);
+            pub.publish(msg);
 			//Size size(700,700);//the dst image size,e.g.100x100
 			//resize(cv_img,cv_img,size);//resize image
 
@@ -107,6 +107,8 @@ int main(int argc, char* argv[]) {
 		cout << "not::settet" << endl;
 
 	camera.ShutterMode.SetValue(ShutterMode_Rolling);
+    //camera.AcquisitionFrameRateEnable.SetValue( true );
+    //camera.AcquisitionFrameRateAbs.SetValue( 20 );
 
 	dynamic_reconfigure::Server<Config> reconfigureServer;
 	dynamic_reconfigure::Server<Config>::CallbackType reconfigureCallback;
