@@ -263,25 +263,35 @@ class DEFAULT
         boost::any val;
         (*_i)->getValue(config, val);
 
-        if("FixedFrameRate"==(*_i)->name){FixedFrameRate = boost::any_cast<bool>(val);}
+        if("Width"==(*_i)->name){Width = boost::any_cast<int>(val);}
+        if("Height"==(*_i)->name){Height = boost::any_cast<int>(val);}
+        if("OffsetX"==(*_i)->name){OffsetX = boost::any_cast<int>(val);}
+        if("OffsetY"==(*_i)->name){OffsetY = boost::any_cast<int>(val);}
         if("ExposureAuto"==(*_i)->name){ExposureAuto = boost::any_cast<std::string>(val);}
-        if("GainAuto"==(*_i)->name){GainAuto = boost::any_cast<std::string>(val);}
-        if("PixelFormat"==(*_i)->name){PixelFormat = boost::any_cast<std::string>(val);}
         if("ExposureTimeAbs"==(*_i)->name){ExposureTimeAbs = boost::any_cast<int>(val);}
+        if("GainAuto"==(*_i)->name){GainAuto = boost::any_cast<std::string>(val);}
         if("Gain"==(*_i)->name){Gain = boost::any_cast<int>(val);}
+        if("PixelFormat"==(*_i)->name){PixelFormat = boost::any_cast<std::string>(val);}
         if("AcquisitionMode"==(*_i)->name){AcquisitionMode = boost::any_cast<std::string>(val);}
+        if("FixedFrameRate"==(*_i)->name){FixedFrameRate = boost::any_cast<bool>(val);}
         if("FrameRate"==(*_i)->name){FrameRate = boost::any_cast<double>(val);}
+        if("ShutterMode"==(*_i)->name){ShutterMode = boost::any_cast<std::string>(val);}
       }
     }
 
-    bool FixedFrameRate;
+    int Width;
+int Height;
+int OffsetX;
+int OffsetY;
 std::string ExposureAuto;
-std::string GainAuto;
-std::string PixelFormat;
 int ExposureTimeAbs;
+std::string GainAuto;
 int Gain;
+std::string PixelFormat;
 std::string AcquisitionMode;
+bool FixedFrameRate;
 double FrameRate;
+std::string ShutterMode;
 
     bool state;
     std::string name;
@@ -292,21 +302,31 @@ double FrameRate;
 
 
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      bool FixedFrameRate;
+      int Width;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      int Height;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      int OffsetX;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      int OffsetY;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       std::string ExposureAuto;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      std::string GainAuto;
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      std::string PixelFormat;
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       int ExposureTimeAbs;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      std::string GainAuto;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       int Gain;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      std::string PixelFormat;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       std::string AcquisitionMode;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      bool FixedFrameRate;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       double FrameRate;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      std::string ShutterMode;
 //#line 255 "/opt/ros/indigo/share/dynamic_reconfigure/templates/ConfigType.h.template"
 
     bool __fromMessage__(dynamic_reconfigure::Config &msg)
@@ -443,15 +463,45 @@ double FrameRate;
     {
 CameraTrackingConfig::GroupDescription<CameraTrackingConfig::DEFAULT, CameraTrackingConfig> Default("Default", "", 0, 0, true, &CameraTrackingConfig::groups);
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __min__.FixedFrameRate = 0;
+      __min__.Width = 0;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __max__.FixedFrameRate = 1;
+      __max__.Width = 10000;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __default__.FixedFrameRate = 1;
+      __default__.Width = 1600;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<bool>("FixedFrameRate", "bool", 0, "fixed Framerate enable", "", &CameraTrackingConfig::FixedFrameRate)));
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("Width", "int", 0, "Width)", "", &CameraTrackingConfig::Width)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<bool>("FixedFrameRate", "bool", 0, "fixed Framerate enable", "", &CameraTrackingConfig::FixedFrameRate)));
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("Width", "int", 0, "Width)", "", &CameraTrackingConfig::Width)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __min__.Height = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __max__.Height = 10000;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __default__.Height = 1200;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("Height", "int", 0, "Height", "", &CameraTrackingConfig::Height)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("Height", "int", 0, "Height", "", &CameraTrackingConfig::Height)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __min__.OffsetX = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __max__.OffsetX = 10000;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __default__.OffsetX = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("OffsetX", "int", 0, "OffsetX", "", &CameraTrackingConfig::OffsetX)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("OffsetX", "int", 0, "OffsetX", "", &CameraTrackingConfig::OffsetX)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __min__.OffsetY = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __max__.OffsetY = 10000;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __default__.OffsetY = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("OffsetY", "int", 0, "OffsetY", "", &CameraTrackingConfig::OffsetY)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("OffsetY", "int", 0, "OffsetY", "", &CameraTrackingConfig::OffsetY)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __min__.ExposureAuto = "";
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
@@ -459,29 +509,9 @@ CameraTrackingConfig::GroupDescription<CameraTrackingConfig::DEFAULT, CameraTrac
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __default__.ExposureAuto = "Off";
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("ExposureAuto", "str", 0, "Automatic exposure", "{'enum_description': 'Automatic Settings', 'enum': [{'srcline': 14, 'description': 'Use Manual Settings', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Off', 'ctype': 'std::string', 'type': 'str', 'name': 'Off_'}, {'srcline': 15, 'description': 'Recalc Once', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Once', 'ctype': 'std::string', 'type': 'str', 'name': 'Once'}, {'srcline': 16, 'description': 'Recalc Continually', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous'}]}", &CameraTrackingConfig::ExposureAuto)));
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("ExposureAuto", "str", 0, "Automatic exposure", "{'enum_description': 'Automatic Settings', 'enum': [{'srcline': 20, 'description': 'Use Manual Settings', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Off', 'ctype': 'std::string', 'type': 'str', 'name': 'Off_'}, {'srcline': 21, 'description': 'Recalc Once', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Once', 'ctype': 'std::string', 'type': 'str', 'name': 'Once'}, {'srcline': 22, 'description': 'Recalc Continually', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous'}]}", &CameraTrackingConfig::ExposureAuto)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("ExposureAuto", "str", 0, "Automatic exposure", "{'enum_description': 'Automatic Settings', 'enum': [{'srcline': 14, 'description': 'Use Manual Settings', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Off', 'ctype': 'std::string', 'type': 'str', 'name': 'Off_'}, {'srcline': 15, 'description': 'Recalc Once', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Once', 'ctype': 'std::string', 'type': 'str', 'name': 'Once'}, {'srcline': 16, 'description': 'Recalc Continually', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous'}]}", &CameraTrackingConfig::ExposureAuto)));
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __min__.GainAuto = "";
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __max__.GainAuto = "";
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __default__.GainAuto = "Off";
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("GainAuto", "str", 0, "Automatic gain", "{'enum_description': 'Automatic Settings', 'enum': [{'srcline': 14, 'description': 'Use Manual Settings', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Off', 'ctype': 'std::string', 'type': 'str', 'name': 'Off_'}, {'srcline': 15, 'description': 'Recalc Once', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Once', 'ctype': 'std::string', 'type': 'str', 'name': 'Once'}, {'srcline': 16, 'description': 'Recalc Continually', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous'}]}", &CameraTrackingConfig::GainAuto)));
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("GainAuto", "str", 0, "Automatic gain", "{'enum_description': 'Automatic Settings', 'enum': [{'srcline': 14, 'description': 'Use Manual Settings', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Off', 'ctype': 'std::string', 'type': 'str', 'name': 'Off_'}, {'srcline': 15, 'description': 'Recalc Once', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Once', 'ctype': 'std::string', 'type': 'str', 'name': 'Once'}, {'srcline': 16, 'description': 'Recalc Continually', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous'}]}", &CameraTrackingConfig::GainAuto)));
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __min__.PixelFormat = "";
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __max__.PixelFormat = "";
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __default__.PixelFormat = "Bayer_RG8";
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("PixelFormat", "str", 0, "Pixel Format", "{'enum_description': 'Pixel Format', 'enum': [{'srcline': 19, 'description': 'Color', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Bayer_RG8', 'ctype': 'std::string', 'type': 'str', 'name': 'Bayer_RG8'}, {'srcline': 20, 'description': 'Grayscale', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Mono_8', 'ctype': 'std::string', 'type': 'str', 'name': 'Mono_8'}, {'srcline': 21, 'description': 'Color', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'YUV_422', 'ctype': 'std::string', 'type': 'str', 'name': 'YUV_422'}]}", &CameraTrackingConfig::PixelFormat)));
-//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("PixelFormat", "str", 0, "Pixel Format", "{'enum_description': 'Pixel Format', 'enum': [{'srcline': 19, 'description': 'Color', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Bayer_RG8', 'ctype': 'std::string', 'type': 'str', 'name': 'Bayer_RG8'}, {'srcline': 20, 'description': 'Grayscale', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Mono_8', 'ctype': 'std::string', 'type': 'str', 'name': 'Mono_8'}, {'srcline': 21, 'description': 'Color', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'YUV_422', 'ctype': 'std::string', 'type': 'str', 'name': 'YUV_422'}]}", &CameraTrackingConfig::PixelFormat)));
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("ExposureAuto", "str", 0, "Automatic exposure", "{'enum_description': 'Automatic Settings', 'enum': [{'srcline': 20, 'description': 'Use Manual Settings', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Off', 'ctype': 'std::string', 'type': 'str', 'name': 'Off_'}, {'srcline': 21, 'description': 'Recalc Once', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Once', 'ctype': 'std::string', 'type': 'str', 'name': 'Once'}, {'srcline': 22, 'description': 'Recalc Continually', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous'}]}", &CameraTrackingConfig::ExposureAuto)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __min__.ExposureTimeAbs = 35;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
@@ -493,6 +523,16 @@ CameraTrackingConfig::GroupDescription<CameraTrackingConfig::DEFAULT, CameraTrac
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("ExposureTimeAbs", "int", 0, "Exposure time (us)", "", &CameraTrackingConfig::ExposureTimeAbs)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __min__.GainAuto = "";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __max__.GainAuto = "";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __default__.GainAuto = "Off";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("GainAuto", "str", 0, "Automatic gain", "{'enum_description': 'Automatic Settings', 'enum': [{'srcline': 20, 'description': 'Use Manual Settings', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Off', 'ctype': 'std::string', 'type': 'str', 'name': 'Off_'}, {'srcline': 21, 'description': 'Recalc Once', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Once', 'ctype': 'std::string', 'type': 'str', 'name': 'Once'}, {'srcline': 22, 'description': 'Recalc Continually', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous'}]}", &CameraTrackingConfig::GainAuto)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("GainAuto", "str", 0, "Automatic gain", "{'enum_description': 'Automatic Settings', 'enum': [{'srcline': 20, 'description': 'Use Manual Settings', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Off', 'ctype': 'std::string', 'type': 'str', 'name': 'Off_'}, {'srcline': 21, 'description': 'Recalc Once', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Once', 'ctype': 'std::string', 'type': 'str', 'name': 'Once'}, {'srcline': 22, 'description': 'Recalc Continually', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous'}]}", &CameraTrackingConfig::GainAuto)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __min__.Gain = 1;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __max__.Gain = 3;
@@ -503,15 +543,35 @@ CameraTrackingConfig::GroupDescription<CameraTrackingConfig::DEFAULT, CameraTrac
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<int>("Gain", "int", 0, "Gain (%)", "", &CameraTrackingConfig::Gain)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __min__.PixelFormat = "";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __max__.PixelFormat = "";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __default__.PixelFormat = "Bayer_RG8";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("PixelFormat", "str", 0, "Pixel Format", "{'enum_description': 'Pixel Format', 'enum': [{'srcline': 25, 'description': 'Color', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Bayer_RG8', 'ctype': 'std::string', 'type': 'str', 'name': 'Bayer_RG8'}, {'srcline': 26, 'description': 'Grayscale', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Mono_8', 'ctype': 'std::string', 'type': 'str', 'name': 'Mono_8'}, {'srcline': 27, 'description': 'Color', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'YUV_422', 'ctype': 'std::string', 'type': 'str', 'name': 'YUV_422'}]}", &CameraTrackingConfig::PixelFormat)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("PixelFormat", "str", 0, "Pixel Format", "{'enum_description': 'Pixel Format', 'enum': [{'srcline': 25, 'description': 'Color', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Bayer_RG8', 'ctype': 'std::string', 'type': 'str', 'name': 'Bayer_RG8'}, {'srcline': 26, 'description': 'Grayscale', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Mono_8', 'ctype': 'std::string', 'type': 'str', 'name': 'Mono_8'}, {'srcline': 27, 'description': 'Color', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'YUV_422', 'ctype': 'std::string', 'type': 'str', 'name': 'YUV_422'}]}", &CameraTrackingConfig::PixelFormat)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __min__.AcquisitionMode = "";
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __max__.AcquisitionMode = "";
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __default__.AcquisitionMode = "Continuous";
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("AcquisitionMode", "str", 0, "Acquisition Mode", "{'enum_description': 'AcquisitionMode', 'enum': [{'srcline': 24, 'description': 'Capture continuously upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous_'}, {'srcline': 25, 'description': 'Capture one frame upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'SingleFrame', 'ctype': 'std::string', 'type': 'str', 'name': 'SingleFrame'}, {'srcline': 26, 'description': 'Capture multiple frames upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'MultiFrame', 'ctype': 'std::string', 'type': 'str', 'name': 'MultiFrame'}]}", &CameraTrackingConfig::AcquisitionMode)));
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("AcquisitionMode", "str", 0, "Acquisition Mode", "{'enum_description': 'AcquisitionMode', 'enum': [{'srcline': 30, 'description': 'Capture continuously upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous_'}, {'srcline': 31, 'description': 'Capture one frame upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'SingleFrame', 'ctype': 'std::string', 'type': 'str', 'name': 'SingleFrame'}, {'srcline': 32, 'description': 'Capture multiple frames upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'MultiFrame', 'ctype': 'std::string', 'type': 'str', 'name': 'MultiFrame'}]}", &CameraTrackingConfig::AcquisitionMode)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
-      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("AcquisitionMode", "str", 0, "Acquisition Mode", "{'enum_description': 'AcquisitionMode', 'enum': [{'srcline': 24, 'description': 'Capture continuously upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous_'}, {'srcline': 25, 'description': 'Capture one frame upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'SingleFrame', 'ctype': 'std::string', 'type': 'str', 'name': 'SingleFrame'}, {'srcline': 26, 'description': 'Capture multiple frames upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'MultiFrame', 'ctype': 'std::string', 'type': 'str', 'name': 'MultiFrame'}]}", &CameraTrackingConfig::AcquisitionMode)));
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("AcquisitionMode", "str", 0, "Acquisition Mode", "{'enum_description': 'AcquisitionMode', 'enum': [{'srcline': 30, 'description': 'Capture continuously upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Continuous', 'ctype': 'std::string', 'type': 'str', 'name': 'Continuous_'}, {'srcline': 31, 'description': 'Capture one frame upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'SingleFrame', 'ctype': 'std::string', 'type': 'str', 'name': 'SingleFrame'}, {'srcline': 32, 'description': 'Capture multiple frames upon trigger.', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'MultiFrame', 'ctype': 'std::string', 'type': 'str', 'name': 'MultiFrame'}]}", &CameraTrackingConfig::AcquisitionMode)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __min__.FixedFrameRate = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __max__.FixedFrameRate = 1;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __default__.FixedFrameRate = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<bool>("FixedFrameRate", "bool", 0, "fixed Framerate enable", "", &CameraTrackingConfig::FixedFrameRate)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<bool>("FixedFrameRate", "bool", 0, "fixed Framerate enable", "", &CameraTrackingConfig::FixedFrameRate)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __min__.FrameRate = 1.19048;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
@@ -522,6 +582,16 @@ CameraTrackingConfig::GroupDescription<CameraTrackingConfig::DEFAULT, CameraTrac
       Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<double>("FrameRate", "double", 0, "Framerate (fps)", "", &CameraTrackingConfig::FrameRate)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<double>("FrameRate", "double", 0, "Framerate (fps)", "", &CameraTrackingConfig::FrameRate)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __min__.ShutterMode = "";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __max__.ShutterMode = "";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __default__.ShutterMode = "Rolling";
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("ShutterMode", "str", 0, "Shutter Mode", "{'enum_description': 'Shutter Mode', 'enum': [{'srcline': 15, 'description': 'Rolling Shutter Mode', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Rolling', 'ctype': 'std::string', 'type': 'str', 'name': 'Rolling'}, {'srcline': 16, 'description': 'Global Shutter Mode', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Global', 'ctype': 'std::string', 'type': 'str', 'name': 'Global'}]}", &CameraTrackingConfig::ShutterMode)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<std::string>("ShutterMode", "str", 0, "Shutter Mode", "{'enum_description': 'Shutter Mode', 'enum': [{'srcline': 15, 'description': 'Rolling Shutter Mode', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Rolling', 'ctype': 'std::string', 'type': 'str', 'name': 'Rolling'}, {'srcline': 16, 'description': 'Global Shutter Mode', 'srcfile': '/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg', 'cconsttype': 'const char * const', 'value': 'Global', 'ctype': 'std::string', 'type': 'str', 'name': 'Global'}]}", &CameraTrackingConfig::ShutterMode)));
 //#line 233 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       Default.convertParams();
 //#line 233 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
@@ -605,23 +675,27 @@ CameraTrackingConfig::GroupDescription<CameraTrackingConfig::DEFAULT, CameraTrac
       const char * const CameraTracking_Off = "Off";
 //#line 12 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
       const char * const CameraTracking_On = "On";
-//#line 14 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
-      const char * const CameraTracking_Off_ = "Off";
 //#line 15 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
-      const char * const CameraTracking_Once = "Once";
+      const char * const CameraTracking_Rolling = "Rolling";
 //#line 16 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
-      const char * const CameraTracking_Continuous = "Continuous";
-//#line 19 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
-      const char * const CameraTracking_Bayer_RG8 = "Bayer_RG8";
+      const char * const CameraTracking_Global = "Global";
 //#line 20 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
-      const char * const CameraTracking_Mono_8 = "Mono_8";
+      const char * const CameraTracking_Off_ = "Off";
 //#line 21 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
-      const char * const CameraTracking_YUV_422 = "YUV_422";
-//#line 24 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
-      const char * const CameraTracking_Continuous_ = "Continuous";
+      const char * const CameraTracking_Once = "Once";
+//#line 22 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
+      const char * const CameraTracking_Continuous = "Continuous";
 //#line 25 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
-      const char * const CameraTracking_SingleFrame = "SingleFrame";
+      const char * const CameraTracking_Bayer_RG8 = "Bayer_RG8";
 //#line 26 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
+      const char * const CameraTracking_Mono_8 = "Mono_8";
+//#line 27 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
+      const char * const CameraTracking_YUV_422 = "YUV_422";
+//#line 30 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
+      const char * const CameraTracking_Continuous_ = "Continuous";
+//#line 31 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
+      const char * const CameraTracking_SingleFrame = "SingleFrame";
+//#line 32 "/home/eos/Repos/CameraTracking/src/camera_pylon/cfg/CameraConfig.cfg"
       const char * const CameraTracking_MultiFrame = "MultiFrame";
 }
 

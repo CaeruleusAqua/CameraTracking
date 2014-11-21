@@ -1,14 +1,19 @@
 \subsubsection usage Usage
 \verbatim
 <node name="camera_tracking_params" pkg="camera_pylon" type="camera_tracking_params">
-  <param name="FixedFrameRate" type="bool" value="True" />
+  <param name="Width" type="int" value="1600" />
+  <param name="Height" type="int" value="1200" />
+  <param name="OffsetX" type="int" value="0" />
+  <param name="OffsetY" type="int" value="0" />
   <param name="ExposureAuto" type="str" value="Off" />
-  <param name="GainAuto" type="str" value="Off" />
-  <param name="PixelFormat" type="str" value="Bayer_RG8" />
   <param name="ExposureTimeAbs" type="int" value="14000" />
+  <param name="GainAuto" type="str" value="Off" />
   <param name="Gain" type="int" value="1" />
+  <param name="PixelFormat" type="str" value="Bayer_RG8" />
   <param name="AcquisitionMode" type="str" value="Continuous" />
+  <param name="FixedFrameRate" type="bool" value="False" />
   <param name="FrameRate" type="double" value="10.0" />
+  <param name="ShutterMode" type="str" value="Rolling" />
 </node>
 \endverbatim
 
