@@ -12,6 +12,7 @@ struct global_s
 	image_transport::Publisher 										pub;
 	Pylon::CImageFormatConverter 									*fc;
 	std::string 													encoding;
+	bool 															display;
 	int																opencv_format;
 
 } global;

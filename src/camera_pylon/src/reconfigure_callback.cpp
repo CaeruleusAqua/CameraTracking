@@ -126,7 +126,7 @@ void RosReconfigure_callback(Config &config, uint32_t level) {
 	config.OffsetX=global.Camera->OffsetX.GetValue();
 	global.Camera->OffsetY.SetValue(std::min((int)(global.Camera->OffsetY.GetMax()),config.OffsetY));
 	config.OffsetY=global.Camera->OffsetY.GetValue();
-
-
 	global.Camera->StartGrabbing(GrabStrategy_LatestImageOnly, GrabLoop_ProvidedByInstantCamera);
+
+	global.display=config.Display;
 }

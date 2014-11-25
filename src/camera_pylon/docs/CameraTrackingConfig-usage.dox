@@ -12,6 +12,7 @@
   <param name="PixelFormat" type="str" value="Bayer_RG8" />
   <param name="AcquisitionMode" type="str" value="Continuous" />
   <param name="FixedFrameRate" type="bool" value="False" />
+  <param name="Display" type="bool" value="False" />
   <param name="FrameRate" type="double" value="10.0" />
   <param name="ShutterMode" type="str" value="Rolling" />
 </node>

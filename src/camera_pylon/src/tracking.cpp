@@ -47,13 +47,17 @@ public:
 			CPylonImage image;
 			global.fc->Convert(image, ptrGrabResult);
 			Mat cv_img = cv::Mat(ptrGrabResult->GetHeight(), ptrGrabResult->GetWidth(), global.opencv_format, (uint8_t*) image.GetBuffer());
-			imshow("CV_Image", cv_img);
 			sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), global.encoding, cv_img).toImageMsg();
 			pub.publish(msg);
-			Size size(700, 700); //the dst image size,e.g.100x100
-			resize(cv_img, cv_img, size); //resize image
-			imshow("CV_Image", cv_img);
-			waitKey(1);
+			if (global.display) {
+				Size size(700, 700); //the dst image size,e.g.100x100
+				resize(cv_img, cv_img, size); //resize image
+				imshow("CV_Image", cv_img);
+				waitKey(1);
+			}
+			else
+				destroyWindow("CV_Image");
+
 		}
 	}
 
@@ -73,17 +77,16 @@ void setDefault() {
 		global.Camera->ExposureTimeRaw.SetValue(14000);
 	global.Camera->ShutterMode.SetValue(ShutterMode_Rolling);
 	global.Camera->AcquisitionFrameRateEnable.SetValue(false);
-	global.Camera->AcquisitionFrameRateAbs.SetValue( 20 );
+	global.Camera->AcquisitionFrameRateAbs.SetValue(20);
 	global.fc->OutputPixelFormat = PixelType_Mono8;
-	global.opencv_format=CV_8UC1;
-	global.encoding="mono8";
+	global.opencv_format = CV_8UC1;
+	global.encoding = "mono8";
 
 }
 
 int main(int argc, char* argv[]) {
 	cout << "Camera Device Information" << endl << "=========================" << endl;
 	ros::init(argc, argv, "pylon_driver_node");
-
 
 	int exitCode = 0;
 	CGrabResultPtr ptrGrabResult;
@@ -111,9 +114,6 @@ int main(int argc, char* argv[]) {
 	cout << "Shutter Mode  : " << global.Camera->ShutterMode.ToString() << endl;
 	cout << "Frame Rate    : " << (global.Camera->AcquisitionFrameRateEnable.GetValue() ? "On" : "off") << " ("
 			<< global.Camera->AcquisitionFrameRateAbs.GetValue() << ")" << endl;
-
-
-
 
 	global.phNode = new ros::NodeHandle();
 	global.imageTransporter = new image_transport::ImageTransport(*global.phNode);

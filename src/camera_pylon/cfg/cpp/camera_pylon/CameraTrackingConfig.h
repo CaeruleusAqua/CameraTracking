@@ -274,6 +274,7 @@ class DEFAULT
         if("PixelFormat"==(*_i)->name){PixelFormat = boost::any_cast<std::string>(val);}
         if("AcquisitionMode"==(*_i)->name){AcquisitionMode = boost::any_cast<std::string>(val);}
         if("FixedFrameRate"==(*_i)->name){FixedFrameRate = boost::any_cast<bool>(val);}
+        if("Display"==(*_i)->name){Display = boost::any_cast<bool>(val);}
         if("FrameRate"==(*_i)->name){FrameRate = boost::any_cast<double>(val);}
         if("ShutterMode"==(*_i)->name){ShutterMode = boost::any_cast<std::string>(val);}
       }
@@ -290,6 +291,7 @@ int Gain;
 std::string PixelFormat;
 std::string AcquisitionMode;
 bool FixedFrameRate;
+bool Display;
 double FrameRate;
 std::string ShutterMode;
 
@@ -323,6 +325,8 @@ std::string ShutterMode;
       std::string AcquisitionMode;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       bool FixedFrameRate;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      bool Display;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       double FrameRate;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
@@ -572,6 +576,16 @@ CameraTrackingConfig::GroupDescription<CameraTrackingConfig::DEFAULT, CameraTrac
       Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<bool>("FixedFrameRate", "bool", 0, "fixed Framerate enable", "", &CameraTrackingConfig::FixedFrameRate)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<bool>("FixedFrameRate", "bool", 0, "fixed Framerate enable", "", &CameraTrackingConfig::FixedFrameRate)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __min__.Display = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __max__.Display = 1;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __default__.Display = 0;
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<bool>("Display", "bool", 0, "Show Image", "", &CameraTrackingConfig::Display)));
+//#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CameraTrackingConfig::AbstractParamDescriptionConstPtr(new CameraTrackingConfig::ParamDescription<bool>("Display", "bool", 0, "Show Image", "", &CameraTrackingConfig::Display)));
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
       __min__.FrameRate = 1.19048;
 //#line 259 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator.py"
