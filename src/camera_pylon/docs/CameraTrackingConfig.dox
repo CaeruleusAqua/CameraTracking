@@ -1,0 +1,19 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~Width" : \b [int] Width) min: 0, default: 1600, max: 10000
+- \b "~Height" : \b [int] Height min: 0, default: 1200, max: 10000
+- \b "~OffsetX" : \b [int] OffsetX min: 0, default: 0, max: 10000
+- \b "~OffsetY" : \b [int] OffsetY min: 0, default: 0, max: 10000
+- \b "~ExposureAuto" : \b [str] Automatic exposure min: , default: Off, max: 
+- \b "~ExposureTimeAbs" : \b [int] Exposure time (us) min: 35, default: 14000, max: 840000
+- \b "~GainAuto" : \b [str] Automatic gain min: , default: Off, max: 
+- \b "~Gain" : \b [int] Gain (%) min: 1, default: 1, max: 3
+- \b "~PixelFormat" : \b [str] Pixel Format min: , default: Bayer_RG8, max: 
+- \b "~AcquisitionMode" : \b [str] Acquisition Mode min: , default: Continuous, max: 
+- \b "~FixedFrameRate" : \b [bool] fixed Framerate enable min: False, default: False, max: True
+- \b "~Display" : \b [bool] Show Image min: False, default: False, max: True
+- \b "~FrameRate" : \b [double] Framerate (fps) min: 1.19048, default: 10.0, max: 1000.0
+- \b "~ShutterMode" : \b [str] Shutter Mode min: , default: Rolling, max: 
+
