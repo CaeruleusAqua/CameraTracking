@@ -29,9 +29,9 @@ include_directories(
 )
 
 add_library(reconfigure_callback ${PROJECT_SOURCE_DIR}/src/reconfigure_callback.cpp)
-add_executable(tracking src/tracking.cpp)
+add_executable(cam_node src/cam_node.cpp)
 
-target_link_libraries(tracking 
+target_link_libraries(cam_node 
   ${catkin_LIBRARIES}
   #${OpenCV_LIBS}
   ${OpenCV_LIBRARIES}
@@ -45,5 +45,5 @@ target_link_libraries(tracking
   log4cpp_gcc40_v2_3
   reconfigure_callback
 )
-add_dependencies(tracking ${PROJECT_NAME}_gencfg)
+add_dependencies(cam_node ${PROJECT_NAME}_gencfg)
 
